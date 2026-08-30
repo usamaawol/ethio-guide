@@ -28,7 +28,7 @@ export interface Generation {
   id: string;
   name: string;
   order: number;
-  description?: string;
+  description?: string | undefined;
 }
 
 export interface Source {
@@ -51,7 +51,7 @@ export interface Campus {
   universityId: string;
   name: string;
   city: string | null;
-  description?: string;
+  description?: string | undefined;
   coordinates: Coordinates | null;
   verificationStatus: VerificationStatus;
 }
@@ -62,9 +62,9 @@ export interface Building {
   universityId: string;
   name: string;
   buildingType: string | null;
-  description?: string;
+  description?: string | undefined;
   coordinates: Coordinates | null;
-  relatedUnitId?: string;
+  relatedUnitId?: string | undefined;
   photoIds: string[];
   verificationStatus: VerificationStatus;
 }
@@ -76,8 +76,8 @@ export interface AcademicUnit {
   parentUnitId: string | null;
   kind: AcademicUnitKind;
   name: string;
-  shortName?: string;
-  description?: string;
+  shortName?: string | undefined;
+  description?: string | undefined;
   /**
    * Canonical discipline areas covered by this unit, derived from the unit's
    * own verified name (e.g. "College of Law" -> "law"). These are NOT invented
@@ -112,7 +112,7 @@ export interface Facility {
   id: string;
   universityId: string;
   name: string;
-  description?: string;
+  description?: string | undefined;
   verificationStatus: VerificationStatus;
 }
 
@@ -131,7 +131,7 @@ export interface HistoryEvent {
   universityId: string;
   year: string;
   title: string;
-  description?: string;
+  description?: string | undefined;
   verificationStatus: VerificationStatus;
 }
 
@@ -155,7 +155,7 @@ export interface UniversityStatistic {
   universityId: string;
   label: string;
   value: string;
-  note?: string;
+  note?: string | undefined;
   verificationStatus: VerificationStatus;
 }
 
