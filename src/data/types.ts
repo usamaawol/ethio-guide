@@ -78,6 +78,12 @@ export interface AcademicUnit {
   name: string;
   shortName?: string;
   description?: string;
+  /**
+   * Canonical discipline areas covered by this unit, derived from the unit's
+   * own verified name (e.g. "College of Law" -> "law"). These are NOT invented
+   * program listings; they only make units discoverable in program search.
+   */
+  fieldKeys: string[];
   verificationStatus: VerificationStatus;
 }
 
