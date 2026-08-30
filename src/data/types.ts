@@ -173,7 +173,7 @@ export interface University {
   overview: string | null;
   mission: string | null;
   vision: string | null;
-  values: Array<{ name: string; description?: string }>;
+  values: Array<{ name: string; description?: string | undefined }>;
   goals: string[];
   motto: string | null;
   logoText: string;
