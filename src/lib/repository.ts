@@ -7,9 +7,8 @@
  * `getDataSource()` only; no UI code changes.
  */
 import { generations, programFieldLabel, programFields, regions } from "@/data/reference";
-import { addisAbaba } from "@/data/universities/addis-ababa";
-import { haramaya } from "@/data/universities/haramaya";
-import { jimma } from "@/data/universities/jimma";
+import { aastu } from "@/data/universities/aastu";
+import { adigrat } from "@/data/universities/adigrat";
 import type {
   AcademicUnit,
   Generation,
@@ -18,7 +17,7 @@ import type {
   UniversityRecord,
 } from "@/data/types";
 
-const records: UniversityRecord[] = [haramaya, jimma, addisAbaba];
+const records: UniversityRecord[] = [aastu, adigrat];
 
 const hydrate = (record: UniversityRecord): UniversityRecord => ({
   ...record,
@@ -57,7 +56,7 @@ export interface UniversityQuery {
   generationId?: string;
   type?: string;
   fieldKey?: string;
-  sort?: "name" | "location" | "generation" | "verified";
+  sort?: "name" | "location" | "generation" | "established" | "verified";
 }
 
 const matchesText = (record: UniversityRecord, q: string): boolean => {
@@ -103,6 +102,10 @@ export const queryUniversities = (query: UniversityQuery = {}): UniversityRecord
       return (a.region?.name ?? "zz").localeCompare(b.region?.name ?? "zz");
     if (sort === "generation")
       return (a.generation?.order ?? 99) - (b.generation?.order ?? 99);
+    if (sort === "established")
+      return (a.university.yearEstablished ?? "9999").localeCompare(
+        b.university.yearEstablished ?? "9999",
+      );
     if (sort === "verified")
       return (b.university.lastVerified ?? "").localeCompare(a.university.lastVerified ?? "");
     return a.university.name.localeCompare(b.university.name);
