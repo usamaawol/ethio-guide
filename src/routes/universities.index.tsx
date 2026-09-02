@@ -13,12 +13,12 @@ import {
 } from "@/lib/repository";
 
 interface Filters {
-  q?: string;
-  region?: string;
-  generation?: string;
-  type?: string;
-  field?: string;
-  sort?: "name" | "location" | "generation" | "verified";
+  q?: string | undefined;
+  region?: string | undefined;
+  generation?: string | undefined;
+  type?: string | undefined;
+  field?: string | undefined;
+  sort?: "name" | "location" | "generation" | "established" | "verified" | undefined;
 }
 
 export const Route = createFileRoute("/universities/")({
@@ -28,7 +28,7 @@ export const Route = createFileRoute("/universities/")({
     generation: typeof search["generation"] === "string" ? search["generation"] : undefined,
     type: typeof search["type"] === "string" ? search["type"] : undefined,
     field: typeof search["field"] === "string" ? search["field"] : undefined,
-    sort: ["name", "location", "generation", "verified"].includes(String(search["sort"]))
+    sort: ["name", "location", "generation", "established", "verified"].includes(String(search["sort"]))
       ? (search["sort"] as Filters["sort"])
       : undefined,
   }),
@@ -55,10 +55,10 @@ const selectClass =
 
 function UniversitiesPage() {
   const search = Route.useSearch();
-  const navigate = useNavigate({ from: "/universities" });
+  const navigate = useNavigate({ from: "/universities/" });
 
   const set = (patch: Partial<Filters>) =>
-    navigate({ search: (prev) => ({ ...prev, ...patch }) });
+    navigate({ search: (prev: Filters) => ({ ...prev, ...patch }) });
 
   const results = queryUniversities({
     ...(search.q ? { q: search.q } : {}),
@@ -146,6 +146,7 @@ function UniversitiesPage() {
               <option value="name">Sort: Name</option>
               <option value="location">Sort: Location</option>
               <option value="generation">Sort: Generation</option>
+              <option value="established">Sort: Establishment year</option>
               <option value="verified">Sort: Recently verified</option>
             </select>
           </div>
@@ -158,7 +159,7 @@ function UniversitiesPage() {
         {results.length === 0 ? (
           <div className="mt-4 rounded-xl border border-dashed border-border p-10 text-center">
             <p className="text-sm text-muted-foreground">
-              No university in the database matches those filters yet.
+              No matching university found.
             </p>
           </div>
         ) : (
