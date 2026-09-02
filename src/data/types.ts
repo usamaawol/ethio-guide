@@ -139,8 +139,30 @@ export interface UniversityContact {
   universityId: string;
   website: string | null;
   email: string | null;
+  alternateEmail?: string | null;
   phone: string | null;
+  mobile?: string | null;
+  fax?: string | null;
   address: string | null;
+  poBox?: string | null;
+  contactPerson?: string | null;
+  contactPersonTitle?: string | null;
+}
+
+export interface LibraryInformation {
+  universityId: string;
+  services: string[];
+  description?: string | undefined;
+  verificationStatus: VerificationStatus;
+}
+
+export interface LeadershipMessage {
+  universityId: string;
+  title: string;
+  personName: string | null;
+  personTitle: string | null;
+  paragraphs: string[];
+  verificationStatus: VerificationStatus;
 }
 
 export interface OrgUnit {
@@ -178,6 +200,11 @@ export interface University {
   motto: string | null;
   logoText: string;
   heroImageUrl: string | null;
+  amharicName: string | null;
+  country: string;
+  address: string | null;
+  coordinates: Coordinates | null;
+  googleMapsUrl: string | null;
   verificationStatus: VerificationStatus;
   lastVerified: string | null;
 }
@@ -198,4 +225,6 @@ export interface UniversityRecord {
   contact: UniversityContact | null;
   orgUnits: OrgUnit[];
   statistics: UniversityStatistic[];
+  library: LibraryInformation | null;
+  leadership: LeadershipMessage | null;
 }
