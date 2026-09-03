@@ -1,0 +1,150 @@
+import type { UniversityRecord } from "../types";
+
+const uid = "ju";
+const V = "verified" as const;
+const P = "partially_verified" as const;
+
+export const jimma: UniversityRecord = {
+  university: {
+    id: uid,
+    slug: "jimma-university",
+    name: "Jimma University",
+    shortName: "JU",
+    amharicName: null,
+    type: "Public Research University",
+    regionId: "oromia",
+    city: "Jimma",
+    country: "Ethiopia",
+    address: null,
+    coordinates: null,
+    googleMapsUrl: null,
+    generationId: "gen-1",
+    yearEstablished: "1980s",
+    overview:
+      "Jimma University was founded through the amalgamation of the Jimma Institute of Health Sciences and the Jimma College of Agriculture in the 1980s. The supplied history describes both former institutions as national leaders in their respective fields, and the merger as contributing to the creation of a multifaceted, development-oriented institution.",
+    mission:
+      "Jimma University is committed to Engaging in Core Functions of Innovative Teaching, Research and Community Services Through its Cherished and Innovative Community Based Education (CBE).",
+    vision:
+      "Aspires to be one of the Leading Community Based Research Universities in Africa and Renowned in the World by 2030.",
+    values: [
+      { name: "Inclusivity" },
+      { name: "Accessibility" },
+      { name: "Openness" },
+      { name: "Transparency" },
+      { name: "Community engagement" },
+      { name: "Gender equality" },
+      { name: "Support for female students" },
+      { name: "Inclusion of marginalized groups" },
+      { name: "Support for people with disabilities" },
+      { name: "National diversity" },
+      { name: "Internationalization" },
+      { name: "Public-private partnerships" },
+    ],
+    goals: [
+      "Build a culture of academic excellence that champions student success in intellectual expertise, graduation and employability.",
+      "Develop high standards of research addressing national and global challenges.",
+      "Empower communities through creative and responsive services.",
+      "Build a diverse global network supporting intercultural, curricular and co-curricular opportunities that make students globally competent.",
+      "Create partnerships supporting reputation, financial sustainability and investment.",
+    ],
+    motto: "We are in the Community!",
+    logoText: "JU",
+    heroImageUrl: null,
+    verificationStatus: P,
+    lastVerified: "2026-09",
+  },
+  region: null,
+  generation: null,
+  campuses: [
+    {
+      id: `${uid}-agro`,
+      universityId: uid,
+      name: "Agro Campus",
+      city: "Jimma",
+      coordinates: null,
+      verificationStatus: P,
+    },
+  ],
+  buildings: [],
+  units: [
+    { id: `${uid}-clg`, universityId: uid, parentUnitId: null, kind: "college", name: "College of Law & Governance", fieldKeys: ["law"], verificationStatus: V },
+    { id: `${uid}-cbe`, universityId: uid, parentUnitId: null, kind: "college", name: "College of Business & Economics", fieldKeys: ["business", "economics"], verificationStatus: V },
+    { id: `${uid}-cebs`, universityId: uid, parentUnitId: null, kind: "college", name: "College of Education & Behavioral Science", fieldKeys: ["education"], verificationStatus: V },
+    { id: `${uid}-cavm`, universityId: uid, parentUnitId: null, kind: "college", name: "College of Agriculture and Veterinary Medicine", fieldKeys: ["agriculture", "veterinary-medicine"], verificationStatus: V },
+    { id: `${uid}-cns`, universityId: uid, parentUnitId: null, kind: "college", name: "College of Natural Sciences", fieldKeys: ["natural-sciences"], verificationStatus: V },
+    { id: `${uid}-cssh`, universityId: uid, parentUnitId: null, kind: "college", name: "College of Social Sciences & Humanities", fieldKeys: ["social-sciences"], verificationStatus: V },
+    { id: `${uid}-sport`, universityId: uid, parentUnitId: null, kind: "academy", name: "Sport Academy", fieldKeys: ["sport-science"], verificationStatus: V },
+  ],
+  departments: [],
+  programs: [],
+  facilities: [
+    { id: `${uid}-f1`, universityId: uid, name: "Administrative buildings", verificationStatus: P },
+    { id: `${uid}-f2`, universityId: uid, name: "Sports facilities", verificationStatus: P },
+    { id: `${uid}-f3`, universityId: uid, name: "Laboratories", verificationStatus: P },
+    { id: `${uid}-f4`, universityId: uid, name: "ICT centers", verificationStatus: P },
+    { id: `${uid}-f5`, universityId: uid, name: "Hotel", verificationStatus: P },
+    { id: `${uid}-f6`, universityId: uid, name: "Additional classrooms", verificationStatus: P },
+  ],
+  photos: [],
+  history: [
+    {
+      id: `${uid}-h1`,
+      universityId: uid,
+      year: "1980s",
+      title: "Amalgamation of two national institutions",
+      description:
+        "Jimma University was founded through the amalgamation of the Jimma Institute of Health Sciences and the Jimma College of Agriculture.",
+      verificationStatus: V,
+    },
+    {
+      id: `${uid}-h2`,
+      universityId: uid,
+      year: "1999 E.C. regulation",
+      title: "Jimma University Establishment Regulation (Reg. No. 63/1999)",
+      description: "Official establishment regulation published by Jimma University.",
+      verificationStatus: V,
+    },
+  ],
+  sources: [
+    {
+      id: `${uid}-s1`,
+      universityId: uid,
+      sourceName: "Jimma University official website",
+      sourceUrl: "https://ju.edu.et",
+      sourceType: "official_website",
+      lastVerified: "2026-09",
+      verificationStatus: V,
+    },
+    {
+      id: `${uid}-s2`,
+      universityId: uid,
+      sourceName: "Jimma University Establishment Regulation (Reg. No. 63/1999)",
+      sourceUrl:
+        "https://ju.edu.et/wp-content/uploads/2024/04/Reg-No.-63-1999-Jimma-University-EstablishmenRegulation.pdf",
+      sourceType: "official_document",
+      lastVerified: "2026-09",
+      verificationStatus: V,
+    },
+  ],
+  contact: {
+    universityId: uid,
+    website: "https://ju.edu.et",
+    email: null,
+    phone: null,
+    address: null,
+  },
+  orgUnits: [],
+  statistics: [],
+  library: null,
+  leadership: {
+    universityId: uid,
+    title: "Community and inclusion",
+    personName: null,
+    personTitle: null,
+    paragraphs: [
+      "The supplied material emphasises inclusivity, accessibility, openness, transparency, community engagement, gender equality, support for female students, inclusion of marginalized groups, support for people with disabilities, national diversity, internationalization and public-private partnerships.",
+      "Students come from regions including Afar, Gambella and the Somali Region. International relationships include countries and regions such as Somaliland, South Sudan, Gambia, Nigeria and Zambia, among others.",
+    ],
+    verificationStatus: P,
+  },
+};
