@@ -201,12 +201,41 @@ export interface University {
   logoText: string;
   heroImageUrl: string | null;
   amharicName: string | null;
+  /** Alternate/local names and acronyms, used for search. */
+  alternateNames?: string[] | undefined;
   country: string;
   address: string | null;
   coordinates: Coordinates | null;
   googleMapsUrl: string | null;
   verificationStatus: VerificationStatus;
   lastVerified: string | null;
+}
+
+export interface FactRow {
+  label: string;
+  value: string;
+  note?: string | undefined;
+}
+
+export interface NewsItem {
+  id: string;
+  universityId: string;
+  date: string;
+  title: string;
+  summary?: string | undefined;
+  bullets: string[];
+  sourceName: string;
+  sourceUrl: string | null;
+}
+
+export interface EstablishmentClaim {
+  sourceLabel: string;
+  year: string;
+}
+
+export interface ResourceLink {
+  label: string;
+  url?: string | undefined;
 }
 
 export interface UniversityRecord {
@@ -227,4 +256,17 @@ export interface UniversityRecord {
   statistics: UniversityStatistic[];
   library: LibraryInformation | null;
   leadership: LeadershipMessage | null;
+  /** Institutional profile rows ("Not reported" is preserved verbatim). */
+  profileFacts?: FactRow[] | undefined;
+  tuition?: FactRow[] | undefined;
+  admission?: FactRow[] | undefined;
+  news?: NewsItem[] | undefined;
+  /** Conflicting establishment years shown side by side, never merged. */
+  establishmentClaims?: EstablishmentClaim[] | undefined;
+  academicFields?: string[] | undefined;
+  degreeLevels?: string[] | undefined;
+  resources?: ResourceLink[] | undefined;
+  socialPlatforms?: string[] | undefined;
+  /** Honest notes about what the dataset does not contain. */
+  dataNotes?: string[] | undefined;
 }
