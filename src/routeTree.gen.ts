@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CompareRouteImport } from './routes/compare'
 import { Route as GenerationsRouteImport } from './routes/generations'
 import { Route as ProgramsRouteImport } from './routes/programs'
 import { Route as RegionsRouteImport } from './routes/regions'
@@ -19,6 +20,11 @@ import { Route as UniversitiesSlugRouteImport } from './routes/universities.$slu
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CompareRoute = CompareRouteImport.update({
+  id: '/compare',
+  path: '/compare',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GenerationsRoute = GenerationsRouteImport.update({
@@ -49,6 +55,7 @@ const UniversitiesSlugRoute = UniversitiesSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/compare': typeof CompareRoute
   '/generations': typeof GenerationsRoute
   '/programs': typeof ProgramsRoute
   '/regions': typeof RegionsRoute
@@ -57,6 +64,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/compare': typeof CompareRoute
   '/generations': typeof GenerationsRoute
   '/programs': typeof ProgramsRoute
   '/regions': typeof RegionsRoute
@@ -66,6 +74,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/compare': typeof CompareRoute
   '/generations': typeof GenerationsRoute
   '/programs': typeof ProgramsRoute
   '/regions': typeof RegionsRoute
@@ -76,6 +85,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/compare'
     | '/generations'
     | '/programs'
     | '/regions'
@@ -84,6 +94,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/compare'
     | '/generations'
     | '/programs'
     | '/regions'
@@ -92,6 +103,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/compare'
     | '/generations'
     | '/programs'
     | '/regions'
@@ -101,6 +113,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CompareRoute: typeof CompareRoute
   GenerationsRoute: typeof GenerationsRoute
   ProgramsRoute: typeof ProgramsRoute
   RegionsRoute: typeof RegionsRoute
@@ -115,6 +128,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/compare': {
+      id: '/compare'
+      path: '/compare'
+      fullPath: '/compare'
+      preLoaderRoute: typeof CompareRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/generations': {
@@ -157,6 +177,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CompareRoute: CompareRoute,
   GenerationsRoute: GenerationsRoute,
   ProgramsRoute: ProgramsRoute,
   RegionsRoute: RegionsRoute,
