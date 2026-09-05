@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AiAdvisorRouteImport } from './routes/ai-advisor'
 import { Route as CompareRouteImport } from './routes/compare'
 import { Route as GenerationsRouteImport } from './routes/generations'
 import { Route as ProgramsRouteImport } from './routes/programs'
@@ -20,6 +21,11 @@ import { Route as UniversitiesSlugRouteImport } from './routes/universities.$slu
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AiAdvisorRoute = AiAdvisorRouteImport.update({
+  id: '/ai-advisor',
+  path: '/ai-advisor',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CompareRoute = CompareRouteImport.update({
@@ -55,6 +61,7 @@ const UniversitiesSlugRoute = UniversitiesSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/ai-advisor': typeof AiAdvisorRoute
   '/compare': typeof CompareRoute
   '/generations': typeof GenerationsRoute
   '/programs': typeof ProgramsRoute
@@ -64,6 +71,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/ai-advisor': typeof AiAdvisorRoute
   '/compare': typeof CompareRoute
   '/generations': typeof GenerationsRoute
   '/programs': typeof ProgramsRoute
@@ -74,6 +82,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/ai-advisor': typeof AiAdvisorRoute
   '/compare': typeof CompareRoute
   '/generations': typeof GenerationsRoute
   '/programs': typeof ProgramsRoute
@@ -85,6 +94,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/ai-advisor'
     | '/compare'
     | '/generations'
     | '/programs'
@@ -94,6 +104,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/ai-advisor'
     | '/compare'
     | '/generations'
     | '/programs'
@@ -103,6 +114,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/ai-advisor'
     | '/compare'
     | '/generations'
     | '/programs'
@@ -113,6 +125,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AiAdvisorRoute: typeof AiAdvisorRoute
   CompareRoute: typeof CompareRoute
   GenerationsRoute: typeof GenerationsRoute
   ProgramsRoute: typeof ProgramsRoute
@@ -128,6 +141,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ai-advisor': {
+      id: '/ai-advisor'
+      path: '/ai-advisor'
+      fullPath: '/ai-advisor'
+      preLoaderRoute: typeof AiAdvisorRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/compare': {
@@ -177,6 +197,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AiAdvisorRoute: AiAdvisorRoute,
   CompareRoute: CompareRoute,
   GenerationsRoute: GenerationsRoute,
   ProgramsRoute: ProgramsRoute,
