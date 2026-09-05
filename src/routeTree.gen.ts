@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as GenerationsRouteImport } from './routes/generations'
 import { Route as ProgramsRouteImport } from './routes/programs'
 import { Route as RegionsRouteImport } from './routes/regions'
 import { Route as UniversitiesIndexRouteImport } from './routes/universities.index'
@@ -18,6 +19,11 @@ import { Route as UniversitiesSlugRouteImport } from './routes/universities.$slu
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GenerationsRoute = GenerationsRouteImport.update({
+  id: '/generations',
+  path: '/generations',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProgramsRoute = ProgramsRouteImport.update({
@@ -43,6 +49,7 @@ const UniversitiesSlugRoute = UniversitiesSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/generations': typeof GenerationsRoute
   '/programs': typeof ProgramsRoute
   '/regions': typeof RegionsRoute
   '/universities/$slug': typeof UniversitiesSlugRoute
@@ -50,6 +57,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/generations': typeof GenerationsRoute
   '/programs': typeof ProgramsRoute
   '/regions': typeof RegionsRoute
   '/universities/$slug': typeof UniversitiesSlugRoute
@@ -58,6 +66,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/generations': typeof GenerationsRoute
   '/programs': typeof ProgramsRoute
   '/regions': typeof RegionsRoute
   '/universities/$slug': typeof UniversitiesSlugRoute
@@ -66,12 +75,24 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/programs' | '/regions' | '/universities/$slug' | '/universities/'
+    | '/'
+    | '/generations'
+    | '/programs'
+    | '/regions'
+    | '/universities/$slug'
+    | '/universities/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/programs' | '/regions' | '/universities/$slug' | '/universities'
+  to:
+    | '/'
+    | '/generations'
+    | '/programs'
+    | '/regions'
+    | '/universities/$slug'
+    | '/universities'
   id:
     | '__root__'
     | '/'
+    | '/generations'
     | '/programs'
     | '/regions'
     | '/universities/$slug'
@@ -80,6 +101,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  GenerationsRoute: typeof GenerationsRoute
   ProgramsRoute: typeof ProgramsRoute
   RegionsRoute: typeof RegionsRoute
   UniversitiesSlugRoute: typeof UniversitiesSlugRoute
@@ -93,6 +115,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/generations': {
+      id: '/generations'
+      path: '/generations'
+      fullPath: '/generations'
+      preLoaderRoute: typeof GenerationsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/programs': {
@@ -128,6 +157,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  GenerationsRoute: GenerationsRoute,
   ProgramsRoute: ProgramsRoute,
   RegionsRoute: RegionsRoute,
   UniversitiesSlugRoute: UniversitiesSlugRoute,
