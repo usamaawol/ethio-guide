@@ -8,7 +8,12 @@
  */
 import { generations, programFieldLabel, programFields, regions } from "@/data/reference";
 import { aastu } from "@/data/universities/aastu";
+import { aau } from "@/data/universities/aau";
 import { adigrat } from "@/data/universities/adigrat";
+import { aksum } from "@/data/universities/aksum";
+import { astu } from "@/data/universities/astu";
+import { haramaya } from "@/data/universities/haramaya";
+import { jimma } from "@/data/universities/jimma";
 import type {
   AcademicUnit,
   Generation,
@@ -17,7 +22,9 @@ import type {
   UniversityRecord,
 } from "@/data/types";
 
-const records: UniversityRecord[] = [aastu, adigrat];
+/** Every university record in the guide. Additive only — never remove records. */
+const records: UniversityRecord[] = [aastu, aau, adigrat, aksum, astu, haramaya, jimma];
+
 
 const hydrate = (record: UniversityRecord): UniversityRecord => ({
   ...record,
