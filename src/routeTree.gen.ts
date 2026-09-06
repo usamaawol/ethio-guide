@@ -10,10 +10,13 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as AiAdvisorRouteImport } from './routes/ai-advisor'
 import { Route as CompareRouteImport } from './routes/compare'
 import { Route as GenerationsRouteImport } from './routes/generations'
+import { Route as MapRouteImport } from './routes/map'
 import { Route as ProgramsRouteImport } from './routes/programs'
+import { Route as RankingsRouteImport } from './routes/rankings'
 import { Route as RegionsRouteImport } from './routes/regions'
 import { Route as UniversitiesIndexRouteImport } from './routes/universities.index'
 import { Route as UniversitiesSlugRouteImport } from './routes/universities.$slug'
@@ -21,6 +24,11 @@ import { Route as UniversitiesSlugRouteImport } from './routes/universities.$slu
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AiAdvisorRoute = AiAdvisorRouteImport.update({
@@ -38,9 +46,19 @@ const GenerationsRoute = GenerationsRouteImport.update({
   path: '/generations',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MapRoute = MapRouteImport.update({
+  id: '/map',
+  path: '/map',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProgramsRoute = ProgramsRouteImport.update({
   id: '/programs',
   path: '/programs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RankingsRoute = RankingsRouteImport.update({
+  id: '/rankings',
+  path: '/rankings',
   getParentRoute: () => rootRouteImport,
 } as any)
 const RegionsRoute = RegionsRouteImport.update({
@@ -61,20 +79,26 @@ const UniversitiesSlugRoute = UniversitiesSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/ai-advisor': typeof AiAdvisorRoute
   '/compare': typeof CompareRoute
   '/generations': typeof GenerationsRoute
+  '/map': typeof MapRoute
   '/programs': typeof ProgramsRoute
+  '/rankings': typeof RankingsRoute
   '/regions': typeof RegionsRoute
   '/universities/$slug': typeof UniversitiesSlugRoute
   '/universities/': typeof UniversitiesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/ai-advisor': typeof AiAdvisorRoute
   '/compare': typeof CompareRoute
   '/generations': typeof GenerationsRoute
+  '/map': typeof MapRoute
   '/programs': typeof ProgramsRoute
+  '/rankings': typeof RankingsRoute
   '/regions': typeof RegionsRoute
   '/universities/$slug': typeof UniversitiesSlugRoute
   '/universities': typeof UniversitiesIndexRoute
@@ -82,10 +106,13 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/ai-advisor': typeof AiAdvisorRoute
   '/compare': typeof CompareRoute
   '/generations': typeof GenerationsRoute
+  '/map': typeof MapRoute
   '/programs': typeof ProgramsRoute
+  '/rankings': typeof RankingsRoute
   '/regions': typeof RegionsRoute
   '/universities/$slug': typeof UniversitiesSlugRoute
   '/universities/': typeof UniversitiesIndexRoute
@@ -94,30 +121,39 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/about'
     | '/ai-advisor'
     | '/compare'
     | '/generations'
+    | '/map'
     | '/programs'
+    | '/rankings'
     | '/regions'
     | '/universities/$slug'
     | '/universities/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/about'
     | '/ai-advisor'
     | '/compare'
     | '/generations'
+    | '/map'
     | '/programs'
+    | '/rankings'
     | '/regions'
     | '/universities/$slug'
     | '/universities'
   id:
     | '__root__'
     | '/'
+    | '/about'
     | '/ai-advisor'
     | '/compare'
     | '/generations'
+    | '/map'
     | '/programs'
+    | '/rankings'
     | '/regions'
     | '/universities/$slug'
     | '/universities/'
@@ -125,10 +161,13 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
   AiAdvisorRoute: typeof AiAdvisorRoute
   CompareRoute: typeof CompareRoute
   GenerationsRoute: typeof GenerationsRoute
+  MapRoute: typeof MapRoute
   ProgramsRoute: typeof ProgramsRoute
+  RankingsRoute: typeof RankingsRoute
   RegionsRoute: typeof RegionsRoute
   UniversitiesSlugRoute: typeof UniversitiesSlugRoute
   UniversitiesIndexRoute: typeof UniversitiesIndexRoute
@@ -141,6 +180,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/ai-advisor': {
@@ -164,11 +210,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GenerationsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/map': {
+      id: '/map'
+      path: '/map'
+      fullPath: '/map'
+      preLoaderRoute: typeof MapRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/programs': {
       id: '/programs'
       path: '/programs'
       fullPath: '/programs'
       preLoaderRoute: typeof ProgramsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/rankings': {
+      id: '/rankings'
+      path: '/rankings'
+      fullPath: '/rankings'
+      preLoaderRoute: typeof RankingsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/regions': {
@@ -197,10 +257,13 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
   AiAdvisorRoute: AiAdvisorRoute,
   CompareRoute: CompareRoute,
   GenerationsRoute: GenerationsRoute,
+  MapRoute: MapRoute,
   ProgramsRoute: ProgramsRoute,
+  RankingsRoute: RankingsRoute,
   RegionsRoute: RegionsRoute,
   UniversitiesSlugRoute: UniversitiesSlugRoute,
   UniversitiesIndexRoute: UniversitiesIndexRoute,
