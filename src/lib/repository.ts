@@ -179,3 +179,15 @@ export const searchEverything = (q: string) => {
     .slice(0, 6);
   return { universities, units, fields };
 };
+
+/**
+ * Reported (unverified) classification data. Re-exported here so pages keep
+ * reading through the repository layer only.
+ */
+export {
+  generationLists,
+  reportedGeneration,
+  reportedRankings2025,
+  reportedRankingFor,
+} from "@/data/classification";
+export type { GenerationClassification, ReportedRanking } from "@/data/classification";
