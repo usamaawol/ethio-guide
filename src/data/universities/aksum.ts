@@ -22,7 +22,7 @@ export const aksum: UniversityRecord = {
     address: "P.O. Box 1010, Aksum, Tigray Region, Ethiopia",
     coordinates: null,
     googleMapsUrl: null,
-    generationId: null,
+    generationId: "gen-2",
     yearEstablished: "2007",
     overview:
       "Aksum University is a public, non-profit, coeducational teaching higher education institution in Aksum, Tigray Region, Ethiopia. It is officially recognized by the Ministry of Education of Ethiopia.",

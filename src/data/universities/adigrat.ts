@@ -19,7 +19,7 @@ export const adigrat: UniversityRecord = {
     coordinates: { lat: 14.2561239, lng: 39.4656488 },
     googleMapsUrl:
       "https://www.google.com/maps/place/University+Adigrat/@14.2561239,39.4630739,17z/data=!3m1!4b1!4m6!3m5!1s0x166c856a7f5d6249:0xd58ec1427ec5625c!8m2!3d14.2561239!4d39.4656488!16s%2Fg%2F11cs3vp5c3",
-    generationId: null,
+    generationId: "gen-3",
     yearEstablished: "2011",
     overview:
       "Adigrat University is a national university in Adigrat, Tigray Region. Established in 2011, it has grown into a comprehensive public university committed to quality education, impactful research, innovation, community engagement and sustainable development.",

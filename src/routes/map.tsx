@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 
+import { LoginRequired } from "@/components/site/LoginRequired";
 import { PageHeader } from "@/components/site/PageHeader";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { UniversityMap } from "@/components/site/UniversityMap";
@@ -63,6 +64,7 @@ function MapPage() {
 
   return (
     <SiteLayout>
+      <LoginRequired>
       <PageHeader
         eyebrow="Geographic explorer"
         title="University map"
@@ -213,6 +215,7 @@ function MapPage() {
           </div>
         </div>
       </div>
+      </LoginRequired>
     </SiteLayout>
   );
 }

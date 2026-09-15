@@ -22,7 +22,7 @@ export const astu: UniversityRecord = {
     address: "P.O. Box 1888, Adama, Oromia, Ethiopia",
     coordinates: null,
     googleMapsUrl: null,
-    generationId: null,
+    generationId: "gen-2",
     yearEstablished: null,
     overview:
       "Adama Science and Technology University is a public, non-profit, coeducational higher education institution in Adama, Oromia. It focuses on applied sciences, technology, engineering and ICT, and is reported to run nine applied sciences, technology, engineering and ICT-focused schools.",

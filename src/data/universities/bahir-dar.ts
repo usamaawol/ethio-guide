@@ -1,0 +1,80 @@
+import type { UniversityRecord } from "../types";
+
+const uid = "bdu";
+const N = "needs_verification" as const;
+
+export const bahirDar: UniversityRecord = {
+  university: {
+    id: uid,
+    slug: "bahir-dar-university",
+    name: "Bahir Dar University",
+    shortName: "BDU",
+    amharicName: null,
+    alternateNames: ["BDU", "Bahir Dar"],
+    type: "Public Research University",
+    regionId: "amhara",
+    city: "Bahir Dar",
+    country: "Ethiopia",
+    address: "Bahir Dar, Amhara Region, Ethiopia",
+    coordinates: null,
+    googleMapsUrl: null,
+    generationId: "gen-1",
+    yearEstablished: "1963",
+    overview:
+      "Bahir Dar University is a public research university located in Bahir Dar, the capital of the Amhara Region. It is one of Ethiopia's major universities and a key institution for science and technology education.",
+    mission: null,
+    vision: null,
+    values: [],
+    goals: [],
+    motto: null,
+    logoText: "BDU",
+    heroImageUrl: null,
+    verificationStatus: N,
+    lastVerified: null,
+  },
+  region: null,
+  generation: null,
+  campuses: [],
+  buildings: [],
+  units: [],
+  departments: [],
+  programs: [],
+  facilities: [],
+  photos: [],
+  history: [
+    {
+      id: `${uid}-h1`,
+      universityId: uid,
+      year: "1963",
+      title: "Founded",
+      description: "Bahir Dar University was established in 1963.",
+      verificationStatus: N,
+    },
+  ],
+  sources: [
+    {
+      id: `${uid}-s1`,
+      universityId: uid,
+      sourceName: "Bahir Dar University official website",
+      sourceUrl: "https://www.bdu.edu.et",
+      sourceType: "official_website",
+      lastVerified: null,
+      verificationStatus: N,
+    },
+  ],
+  contact: {
+    universityId: uid,
+    website: "https://www.bdu.edu.et",
+    email: null,
+    phone: null,
+    address: "Bahir Dar, Amhara Region, Ethiopia",
+  },
+  orgUnits: [],
+  statistics: [],
+  library: null,
+  leadership: null,
+  dataNotes: [
+    "Detailed profile information for Bahir Dar University is not yet available in this dataset.",
+    "Information will be added as it is verified from official sources.",
+  ],
+};

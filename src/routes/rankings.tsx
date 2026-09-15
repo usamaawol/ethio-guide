@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 
+import { LoginRequired } from "@/components/site/LoginRequired";
 import { PageHeader } from "@/components/site/PageHeader";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { VerificationBadge } from "@/components/site/VerificationBadge";
@@ -49,6 +50,7 @@ function RankingsPage() {
 
   return (
     <SiteLayout>
+      <LoginRequired>
       <PageHeader
         eyebrow="Reported data"
         title="Reported 2025 Ranking"
@@ -103,6 +105,7 @@ function RankingsPage() {
           position only — last reviewed as unverified.
         </p>
       </div>
+      </LoginRequired>
     </SiteLayout>
   );
 }

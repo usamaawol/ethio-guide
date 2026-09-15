@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 
+import { LoginRequired } from "@/components/site/LoginRequired";
 import { PageHeader } from "@/components/site/PageHeader";
 import { SiteLayout } from "@/components/site/SiteLayout";
 
@@ -64,6 +65,7 @@ const capabilities = [
 function AboutPage() {
   return (
     <SiteLayout>
+      <LoginRequired>
       <PageHeader
         title="About ETHIO UNIVERSITY GUIDE 🇪🇹"
         description="University Guide for Ethiopian Students — Discover. Explore. Compare. Choose."
@@ -145,6 +147,7 @@ function AboutPage() {
           </Link>
         </div>
       </div>
+      </LoginRequired>
     </SiteLayout>
   );
 }

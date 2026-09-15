@@ -11,10 +11,12 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as AdminRouteImport } from './routes/admin'
 import { Route as AiAdvisorRouteImport } from './routes/ai-advisor'
 import { Route as CompareRouteImport } from './routes/compare'
 import { Route as GenerationsRouteImport } from './routes/generations'
 import { Route as MapRouteImport } from './routes/map'
+import { Route as ProfileRouteImport } from './routes/profile'
 import { Route as ProgramsRouteImport } from './routes/programs'
 import { Route as RankingsRouteImport } from './routes/rankings'
 import { Route as RegionsRouteImport } from './routes/regions'
@@ -29,6 +31,11 @@ const IndexRoute = IndexRouteImport.update({
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AiAdvisorRoute = AiAdvisorRouteImport.update({
@@ -49,6 +56,11 @@ const GenerationsRoute = GenerationsRouteImport.update({
 const MapRoute = MapRouteImport.update({
   id: '/map',
   path: '/map',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfileRoute = ProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProgramsRoute = ProgramsRouteImport.update({
@@ -80,10 +92,12 @@ const UniversitiesSlugRoute = UniversitiesSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/admin': typeof AdminRoute
   '/ai-advisor': typeof AiAdvisorRoute
   '/compare': typeof CompareRoute
   '/generations': typeof GenerationsRoute
   '/map': typeof MapRoute
+  '/profile': typeof ProfileRoute
   '/programs': typeof ProgramsRoute
   '/rankings': typeof RankingsRoute
   '/regions': typeof RegionsRoute
@@ -93,10 +107,12 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/admin': typeof AdminRoute
   '/ai-advisor': typeof AiAdvisorRoute
   '/compare': typeof CompareRoute
   '/generations': typeof GenerationsRoute
   '/map': typeof MapRoute
+  '/profile': typeof ProfileRoute
   '/programs': typeof ProgramsRoute
   '/rankings': typeof RankingsRoute
   '/regions': typeof RegionsRoute
@@ -107,10 +123,12 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/admin': typeof AdminRoute
   '/ai-advisor': typeof AiAdvisorRoute
   '/compare': typeof CompareRoute
   '/generations': typeof GenerationsRoute
   '/map': typeof MapRoute
+  '/profile': typeof ProfileRoute
   '/programs': typeof ProgramsRoute
   '/rankings': typeof RankingsRoute
   '/regions': typeof RegionsRoute
@@ -122,10 +140,12 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/admin'
     | '/ai-advisor'
     | '/compare'
     | '/generations'
     | '/map'
+    | '/profile'
     | '/programs'
     | '/rankings'
     | '/regions'
@@ -135,10 +155,12 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
+    | '/admin'
     | '/ai-advisor'
     | '/compare'
     | '/generations'
     | '/map'
+    | '/profile'
     | '/programs'
     | '/rankings'
     | '/regions'
@@ -148,10 +170,12 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/about'
+    | '/admin'
     | '/ai-advisor'
     | '/compare'
     | '/generations'
     | '/map'
+    | '/profile'
     | '/programs'
     | '/rankings'
     | '/regions'
@@ -162,10 +186,12 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  AdminRoute: typeof AdminRoute
   AiAdvisorRoute: typeof AiAdvisorRoute
   CompareRoute: typeof CompareRoute
   GenerationsRoute: typeof GenerationsRoute
   MapRoute: typeof MapRoute
+  ProfileRoute: typeof ProfileRoute
   ProgramsRoute: typeof ProgramsRoute
   RankingsRoute: typeof RankingsRoute
   RegionsRoute: typeof RegionsRoute
@@ -187,6 +213,13 @@ declare module '@tanstack/react-router' {
       path: '/about'
       fullPath: '/about'
       preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/ai-advisor': {
@@ -215,6 +248,13 @@ declare module '@tanstack/react-router' {
       path: '/map'
       fullPath: '/map'
       preLoaderRoute: typeof MapRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profile': {
+      id: '/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof ProfileRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/programs': {
@@ -258,10 +298,12 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  AdminRoute: AdminRoute,
   AiAdvisorRoute: AiAdvisorRoute,
   CompareRoute: CompareRoute,
   GenerationsRoute: GenerationsRoute,
   MapRoute: MapRoute,
+  ProfileRoute: ProfileRoute,
   ProgramsRoute: ProgramsRoute,
   RankingsRoute: RankingsRoute,
   RegionsRoute: RegionsRoute,

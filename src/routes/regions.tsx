@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { MapPin } from "lucide-react";
 
+import { LoginRequired } from "@/components/site/LoginRequired";
 import { PageHeader } from "@/components/site/PageHeader";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { UniversityCard } from "@/components/site/UniversityCard";
@@ -9,13 +10,13 @@ import { getAllRecords, getRegions } from "@/lib/repository";
 export const Route = createFileRoute("/regions")({
   head: () => ({
     meta: [
-      { title: "Universities by Region | Ethio University Guide" },
+      { title: "Universities by Region | ETHIO UNIVERSITY GUIDE" },
       {
         name: "description",
         content:
           "Browse Ethiopian universities by regional state and city administration, from Addis Ababa to Tigray and Oromia.",
       },
-      { property: "og:title", content: "Universities by Region" },
+      { property: "og:title", content: "Universities by Region | ETHIO UNIVERSITY GUIDE" },
       {
         property: "og:description",
         content: "Browse Ethiopian universities by regional state and city administration.",
@@ -33,6 +34,7 @@ function RegionsPage() {
 
   return (
     <SiteLayout>
+      <LoginRequired>
       <PageHeader
         eyebrow="Explore"
         title="Universities by region"
@@ -77,6 +79,7 @@ function RegionsPage() {
           .
         </p>
       </div>
+      </LoginRequired>
     </SiteLayout>
   );
 }

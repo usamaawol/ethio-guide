@@ -14,6 +14,40 @@ import { aksum } from "@/data/universities/aksum";
 import { astu } from "@/data/universities/astu";
 import { haramaya } from "@/data/universities/haramaya";
 import { jimma } from "@/data/universities/jimma";
+// New universities added 2026-09
+import { gondar } from "@/data/universities/gondar";
+import { bahirDar } from "@/data/universities/bahir-dar";
+import { mekelle } from "@/data/universities/mekelle";
+import { hawassa } from "@/data/universities/hawassa";
+import { arbaMinch } from "@/data/universities/arba-minch";
+import { jigjiga } from "@/data/universities/jigjiga";
+import { ambo } from "@/data/universities/ambo";
+import { dilla } from "@/data/universities/dilla";
+import { unity } from "@/data/universities/unity";
+import { debreBerhan } from "@/data/universities/debre-berhan";
+import { wollo } from "@/data/universities/wollo";
+import { debreMarkos } from "@/data/universities/debre-markos";
+import { wolaitaSodo } from "@/data/universities/wolaita-sodo";
+import { maddaWalabu } from "@/data/universities/madda-walabu";
+import { worabe } from "@/data/universities/worabe";
+import { wachamo } from "@/data/universities/wachamo";
+import { debreTabor } from "@/data/universities/debre-tabor";
+import { wolkite } from "@/data/universities/wolkite";
+import { samara } from "@/data/universities/samara";
+import { assosa } from "@/data/universities/assosa";
+import { direDawa } from "@/data/universities/dire-dawa";
+import { wollega } from "@/data/universities/wollega";
+import { mettu } from "@/data/universities/mettu";
+import { mizanTepi } from "@/data/universities/mizan-tepi";
+import { kotebe } from "@/data/universities/kotebe";
+import { woldia } from "@/data/universities/woldia";
+import { buleHora } from "@/data/universities/bule-hora";
+import { odaBultum } from "@/data/universities/oda-bultum";
+import { raya } from "@/data/universities/raya";
+import { injibara } from "@/data/universities/injibara";
+import { selale } from "@/data/universities/selale";
+import { arsi } from "@/data/universities/arsi";
+import { gambella } from "@/data/universities/gambella";
 import type {
   AcademicUnit,
   Generation,
@@ -23,7 +57,18 @@ import type {
 } from "@/data/types";
 
 /** Every university record in the guide. Additive only — never remove records. */
-const records: UniversityRecord[] = [aastu, aau, adigrat, aksum, astu, haramaya, jimma];
+const records: UniversityRecord[] = [
+  // Original 7
+  aastu, aau, adigrat, aksum, astu, haramaya, jimma,
+  // Newly registered
+  gondar, bahirDar, mekelle, hawassa, arbaMinch, jigjiga,
+  ambo, dilla, unity, debreBerhan, wollo, debreMarkos,
+  wolaitaSodo, maddaWalabu, worabe, wachamo, debreTabor,
+  wolkite, samara, assosa, direDawa, wollega, mettu,
+  mizanTepi, kotebe, woldia, buleHora, odaBultum,
+  raya, injibara, selale,
+  arsi, gambella,
+];
 
 
 const hydrate = (record: UniversityRecord): UniversityRecord => ({

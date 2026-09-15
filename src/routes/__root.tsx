@@ -77,14 +77,21 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "ETHIO UNIVERSITY GUIDE 🇪🇹 | Discover Ethiopian Universities" },
+      {
+        name: "description",
+        content:
+          "ETHIO UNIVERSITY GUIDE — University Guide for Ethiopian Students. Discover, explore, compare and choose Ethiopian universities with verified data.",
+      },
+      { name: "author", content: "ETHIO UNIVERSITY GUIDE" },
+      { property: "og:title", content: "ETHIO UNIVERSITY GUIDE 🇪🇹" },
+      {
+        property: "og:description",
+        content:
+          "Discover, explore, compare and choose Ethiopian universities. Verified data, interactive maps, AI advisor.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
       {
@@ -92,6 +99,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: appCss,
       },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "apple-touch-icon", href: "/favicon.ico" },
     ],
   }),
   shellComponent: RootShell,

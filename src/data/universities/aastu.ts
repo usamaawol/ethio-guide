@@ -19,7 +19,7 @@ export const aastu: UniversityRecord = {
     coordinates: { lat: 8.8851654, lng: 38.8097534 },
     googleMapsUrl:
       "https://www.google.com/maps/place/Addis+Ababa+Science+and+Technology+University/@8.8851654,38.8071785,17z/data=!3m1!4b1!4m6!3m5!1s0x164b82a7e392203f:0xb05f440eacc98f9f!8m2!3d8.8851654!4d38.8097534!16s%2Fg%2F11r8dcwkk",
-    generationId: null,
+    generationId: "gen-3",
     yearEstablished: "2011",
     overview:
       "Addis Ababa Science and Technology University is a higher education institute in Addis Ababa focused on applied sciences, technology, engineering and ICT. It was founded in 2011 under Council of Ministers Directive No. 216/2011, and admitted its first batch of 2,000 students in November 2011.",

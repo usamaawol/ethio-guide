@@ -1,0 +1,80 @@
+import type { UniversityRecord } from "../types";
+
+const uid = "mu";
+const N = "needs_verification" as const;
+
+export const mekelle: UniversityRecord = {
+  university: {
+    id: uid,
+    slug: "mekelle-university",
+    name: "Mekelle University",
+    shortName: "MU",
+    amharicName: null,
+    alternateNames: ["MU", "Mekele University"],
+    type: "Public Research University",
+    regionId: "tigray",
+    city: "Mekelle",
+    country: "Ethiopia",
+    address: "Mekelle, Tigray Region, Ethiopia",
+    coordinates: null,
+    googleMapsUrl: null,
+    generationId: "gen-1",
+    yearEstablished: "1993",
+    overview:
+      "Mekelle University is a public research university located in Mekelle, the capital of the Tigray Region. It is one of Ethiopia's major comprehensive universities.",
+    mission: null,
+    vision: null,
+    values: [],
+    goals: [],
+    motto: null,
+    logoText: "MU",
+    heroImageUrl: null,
+    verificationStatus: N,
+    lastVerified: null,
+  },
+  region: null,
+  generation: null,
+  campuses: [],
+  buildings: [],
+  units: [],
+  departments: [],
+  programs: [],
+  facilities: [],
+  photos: [],
+  history: [
+    {
+      id: `${uid}-h1`,
+      universityId: uid,
+      year: "1993",
+      title: "Founded",
+      description: "Mekelle University was established in 1993.",
+      verificationStatus: N,
+    },
+  ],
+  sources: [
+    {
+      id: `${uid}-s1`,
+      universityId: uid,
+      sourceName: "Mekelle University official website",
+      sourceUrl: "https://www.mu.edu.et",
+      sourceType: "official_website",
+      lastVerified: null,
+      verificationStatus: N,
+    },
+  ],
+  contact: {
+    universityId: uid,
+    website: "https://www.mu.edu.et",
+    email: null,
+    phone: null,
+    address: "Mekelle, Tigray Region, Ethiopia",
+  },
+  orgUnits: [],
+  statistics: [],
+  library: null,
+  leadership: null,
+  dataNotes: [
+    "Detailed profile information for Mekelle University is not yet available in this dataset.",
+    "Information will be added as it is verified from official sources.",
+  ],
+};

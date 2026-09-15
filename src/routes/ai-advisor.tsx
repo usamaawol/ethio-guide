@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Send } from "lucide-react";
 import { useState } from "react";
 
+import { LoginRequired } from "@/components/site/LoginRequired";
 import { PageHeader } from "@/components/site/PageHeader";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { askAdvisor, type AdvisorReply } from "@/lib/ai-advisor";
@@ -9,13 +10,13 @@ import { askAdvisor, type AdvisorReply } from "@/lib/ai-advisor";
 export const Route = createFileRoute("/ai-advisor")({
   head: () => ({
     meta: [
-      { title: "AI university advisor | Ethio University Guide" },
+      { title: "AI University Advisor | ETHIO UNIVERSITY GUIDE" },
       {
         name: "description",
         content:
           "Ask about Ethiopian universities in plain language. Answers come only from verified records in the guide, with the source behind every reply.",
       },
-      { property: "og:title", content: "AI university advisor for Ethiopian students" },
+      { property: "og:title", content: "AI University Advisor | ETHIO UNIVERSITY GUIDE" },
       {
         property: "og:description",
         content: "Grounded answers about Ethiopian universities — no invented information.",
@@ -54,6 +55,7 @@ function AdvisorPage() {
 
   return (
     <SiteLayout>
+      <LoginRequired>
       <PageHeader
         eyebrow="Ethio University Guide"
         title="AI advisor"
@@ -143,6 +145,7 @@ function AdvisorPage() {
           </button>
         </form>
       </div>
+      </LoginRequired>
     </SiteLayout>
   );
 }

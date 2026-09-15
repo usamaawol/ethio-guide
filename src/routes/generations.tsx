@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 
+import { LoginRequired } from "@/components/site/LoginRequired";
 import { PageHeader } from "@/components/site/PageHeader";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { UniversityCard } from "@/components/site/UniversityCard";
@@ -8,13 +9,13 @@ import { getAllRecords, getGenerations } from "@/lib/repository";
 export const Route = createFileRoute("/generations")({
   head: () => ({
     meta: [
-      { title: "University generations | Ethio University Guide" },
+      { title: "University Generations | ETHIO UNIVERSITY GUIDE" },
       {
         name: "description",
         content:
           "Browse Ethiopian universities by expansion generation. Universities without a verified generation are clearly labelled instead of guessed.",
       },
-      { property: "og:title", content: "University generations in Ethiopia" },
+      { property: "og:title", content: "University Generations in Ethiopia | ETHIO UNIVERSITY GUIDE" },
       {
         property: "og:description",
         content: "Ethiopian universities grouped by generation, with unverified links labelled.",
@@ -31,6 +32,7 @@ function GenerationsPage() {
 
   return (
     <SiteLayout>
+      <LoginRequired>
       <PageHeader
         eyebrow="Ethio University Guide"
         title="Browse by generation"
@@ -86,6 +88,7 @@ function GenerationsPage() {
           View the full directory →
         </Link>
       </div>
+      </LoginRequired>
     </SiteLayout>
   );
 }

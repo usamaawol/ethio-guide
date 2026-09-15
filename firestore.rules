@@ -1,0 +1,101 @@
+rules_version = '2';
+
+// ─────────────────────────────────────────────────────────────────────────────
+// ETHIO UNIVERSITY GUIDE — Firestore Security Rules
+//
+// Collections used by this app:
+//   pageViews  — one document per page visit (written by any visitor)
+//   users      — one document per signed-in user, keyed by UID
+//   admins     — optional: future server-side admin role management
+//
+// Design principles
+//   • Only authenticated users can read or write their own data.
+//   • Page views are write-only from the client; only admins can list them.
+//   • Users can only read and update their own user document.
+//   • No client can read the full users collection except admins.
+//   • No client can delete any document (admin deletes done via Firebase Console
+//     or server-side Admin SDK only).
+// ─────────────────────────────────────────────────────────────────────────────
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ── Helper functions ────────────────────────────────────────────────────
+
+    // Is the requesting user signed in?
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    // Does the request come from the document owner?
+    function isOwner(uid) {
+      return isSignedIn() && request.auth.uid == uid;
+    }
+
+    // Is the requesting user an admin?
+    // Admins are stored in /admins/{uid} with field isAdmin: true.
+    // This lets you promote users server-side without redeploying rules.
+    function isAdmin() {
+      return isSignedIn() &&
+        exists(/databases/$(database)/documents/admins/$(request.auth.uid)) &&
+        get(/databases/$(database)/documents/admins/$(request.auth.uid)).data.isAdmin == true;
+    }
+
+    // ── pageViews collection ────────────────────────────────────────────────
+    // Anyone (including guests) may create a page-view record.
+    // Only admins may read the collection (for the dashboard).
+    // Nobody may update or delete individual records from the client.
+
+    match /pageViews/{docId} {
+      // Guests and signed-in users can both write page views.
+      allow create: if
+        // Validate the shape of the document so clients can't inject junk.
+        request.resource.data.keys().hasAll(['path', 'timestamp']) &&
+        request.resource.data.path is string &&
+        request.resource.data.path.size() > 0 &&
+        request.resource.data.path.size() <= 512;
+
+      // Only admins can read individual page-view records.
+      allow read: if isAdmin();
+
+      // No client updates or deletes.
+      allow update, delete: if false;
+    }
+
+    // ── users collection ────────────────────────────────────────────────────
+    // Each signed-in user has a document keyed by their UID.
+    // Users can read and update only their own document.
+    // Admins can read any user document.
+    // No client may delete user documents.
+
+    match /users/{uid} {
+      allow read:   if isOwner(uid) || isAdmin();
+      allow create: if isOwner(uid) &&
+        // Only allow the fields we actually write from the app.
+        request.resource.data.keys().hasOnly(
+          ['email', 'displayName', 'photoURL', 'lastSeen', 'createdAt']
+        );
+      allow update: if isOwner(uid) &&
+        // Allow updating only the fields we maintain.
+        request.resource.data.keys().hasOnly(
+          ['email', 'displayName', 'photoURL', 'lastSeen']
+        );
+      allow delete: if false;
+    }
+
+    // ── admins collection ───────────────────────────────────────────────────
+    // Only readable by admins themselves (for the isAdmin() function above
+    // to work, the document must exist and be readable by the calling user).
+    // Only writable via the Firebase Console or Admin SDK — never from the app.
+
+    match /admins/{uid} {
+      allow read:             if isOwner(uid) || isAdmin();
+      allow create, update, delete: if false;
+    }
+
+    // ── Deny everything else ────────────────────────────────────────────────
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

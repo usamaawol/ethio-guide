@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 
+import { LoginRequired } from "@/components/site/LoginRequired";
 import { PageHeader } from "@/components/site/PageHeader";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { getAllRecords } from "@/lib/repository";
@@ -9,13 +10,13 @@ import type { UniversityRecord } from "@/data/types";
 export const Route = createFileRoute("/compare")({
   head: () => ({
     meta: [
-      { title: "Compare Ethiopian universities | Ethio University Guide" },
+      { title: "Compare Ethiopian Universities | ETHIO UNIVERSITY GUIDE" },
       {
         name: "description",
         content:
           "Compare Ethiopian universities side by side: region, establishment, academic units, campuses, contacts and verification status.",
       },
-      { property: "og:title", content: "Compare Ethiopian universities" },
+      { property: "og:title", content: "Compare Ethiopian Universities | ETHIO UNIVERSITY GUIDE" },
       {
         property: "og:description",
         content: "Side-by-side comparison of Ethiopian universities using verified data only.",
@@ -71,6 +72,7 @@ function ComparePage() {
 
   return (
     <SiteLayout>
+      <LoginRequired>
       <PageHeader
         eyebrow="Ethio University Guide"
         title="Compare universities"
@@ -138,6 +140,7 @@ function ComparePage() {
           </div>
         )}
       </div>
+      </LoginRequired>
     </SiteLayout>
   );
 }

@@ -13,13 +13,13 @@ import {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "University Guide for Ethiopian Students | Explore & Compare" },
+      { title: "ETHIO UNIVERSITY GUIDE 🇪🇹 | Explore & Compare Ethiopian Universities" },
       {
         name: "description",
         content:
           "Discover, compare and understand Ethiopian universities: verified academic units, regions, generations and an AI advisor grounded in sourced data.",
       },
-      { property: "og:title", content: "University Guide for Ethiopian Students" },
+      { property: "og:title", content: "ETHIO UNIVERSITY GUIDE — University Guide for Ethiopian Students" },
       {
         property: "og:description",
         content:
@@ -44,9 +44,12 @@ function Index() {
               🇪🇹 Ethiopian higher education, verified
             </span>
             <h1 className="mt-5 text-4xl font-bold leading-tight sm:text-5xl">
-              Find the right Ethiopian university — with evidence, not guesswork.
+              ETHIO UNIVERSITY GUIDE
             </h1>
-            <p className="mt-5 max-w-2xl text-base leading-relaxed text-primary-foreground/85">
+            <p className="mt-2 text-lg font-medium text-primary-foreground/80">
+              Discover. Explore. Compare. Choose.
+            </p>
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-primary-foreground/85">
               Search by field of study, region or generation, compare institutions side by side, and
               ask the advisor questions in plain language. Anything we can't trace to an official
               source is labelled as unverified instead of invented.
@@ -63,6 +66,12 @@ function Index() {
                 className="inline-flex items-center gap-2 rounded-lg border border-primary-foreground/30 px-5 py-3 text-sm font-semibold transition-colors hover:bg-primary-foreground/10"
               >
                 Ask the AI advisor
+              </Link>
+              <Link
+                to="/map"
+                className="inline-flex items-center gap-2 rounded-lg border border-primary-foreground/30 px-5 py-3 text-sm font-semibold transition-colors hover:bg-primary-foreground/10"
+              >
+                University Map
               </Link>
             </div>
           </div>

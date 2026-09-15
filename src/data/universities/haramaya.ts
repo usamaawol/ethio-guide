@@ -21,7 +21,7 @@ export const haramaya: UniversityRecord = {
     generationId: "gen-1",
     yearEstablished: "1954",
     overview:
-      "Haramaya University is described in the supplied information as one of Ethiopia's largest and oldest public research universities. It was originally founded in 1954 with a strong focus on agricultural science and later expanded into a comprehensive multidisciplinary institution. The supplied information states that it currently enrolls over 30,000 students across various fields.",
+      "Haramaya University is one of Ethiopia's largest and oldest public research universities. Originally founded in 1954 as Alemaya College of Agriculture, it has expanded into a comprehensive multidisciplinary institution enrolling over 30,000 students. The university comprises 9 colleges, 1 institute of technology, and a Sport Science Academy.",
     mission: null,
     vision: null,
     values: [],
@@ -36,22 +36,155 @@ export const haramaya: UniversityRecord = {
   generation: null,
   campuses: [],
   buildings: [],
+
+  // ── ACADEMIC UNITS (colleges & institute) ──────────────────────────────────
   units: [
-    { id: `${uid}-caes`, universityId: uid, parentUnitId: null, kind: "college", name: "College of Agriculture & Environmental Sciences", fieldKeys: ["agriculture"], verificationStatus: V },
-    { id: `${uid}-cbe`, universityId: uid, parentUnitId: null, kind: "college", name: "College of Business & Economics", fieldKeys: ["business", "economics"], verificationStatus: V },
-    { id: `${uid}-cci`, universityId: uid, parentUnitId: null, kind: "college", name: "College of Computing & Informatics", fieldKeys: ["computer-science", "information-technology", "information-systems", "software-engineering"], verificationStatus: V },
-    { id: `${uid}-cebs`, universityId: uid, parentUnitId: null, kind: "college", name: "College of Education & Behavioural Sciences", fieldKeys: ["education"], verificationStatus: V },
-    { id: `${uid}-chms`, universityId: uid, parentUnitId: null, kind: "college", name: "College of Health & Medical Sciences", fieldKeys: ["medicine", "public-health", "nursing"], verificationStatus: V },
-    { id: `${uid}-col`, universityId: uid, parentUnitId: null, kind: "college", name: "College of Law", fieldKeys: ["law"], verificationStatus: V },
-    { id: `${uid}-cncs`, universityId: uid, parentUnitId: null, kind: "college", name: "College of Natural & Computational Sciences", fieldKeys: ["natural-sciences"], verificationStatus: V },
-    { id: `${uid}-cssh`, universityId: uid, parentUnitId: null, kind: "college", name: "College of Social Sciences & Humanities", fieldKeys: ["social-sciences"], verificationStatus: V },
-    { id: `${uid}-cvm`, universityId: uid, parentUnitId: null, kind: "college", name: "College of Veterinary Medicine", fieldKeys: ["veterinary-medicine"], verificationStatus: V },
-    { id: `${uid}-hit`, universityId: uid, parentUnitId: null, kind: "institute", name: "Haramaya Institute of Technology (HIT)", fieldKeys: ["engineering"], verificationStatus: V },
+    {
+      id: `${uid}-caes`, universityId: uid, parentUnitId: null, kind: "college",
+      name: "College of Agriculture & Environmental Sciences",
+      fieldKeys: ["agriculture"], verificationStatus: V,
+    },
+    {
+      id: `${uid}-cbe`, universityId: uid, parentUnitId: null, kind: "college",
+      name: "College of Business & Economics",
+      fieldKeys: ["business", "economics"], verificationStatus: V,
+    },
+    {
+      id: `${uid}-cci`, universityId: uid, parentUnitId: null, kind: "college",
+      name: "College of Computing & Informatics",
+      fieldKeys: ["computer-science", "information-technology", "information-systems", "software-engineering"],
+      verificationStatus: V,
+    },
+    {
+      id: `${uid}-cebs`, universityId: uid, parentUnitId: null, kind: "college",
+      name: "College of Education & Behavioural Sciences",
+      fieldKeys: ["education"], verificationStatus: V,
+    },
+    {
+      id: `${uid}-chms`, universityId: uid, parentUnitId: null, kind: "college",
+      name: "College of Health & Medical Sciences",
+      fieldKeys: ["medicine", "public-health", "nursing"], verificationStatus: V,
+    },
+    {
+      id: `${uid}-col`, universityId: uid, parentUnitId: null, kind: "college",
+      name: "College of Law",
+      fieldKeys: ["law"], verificationStatus: V,
+    },
+    {
+      id: `${uid}-cncs`, universityId: uid, parentUnitId: null, kind: "college",
+      name: "College of Natural & Computational Sciences",
+      fieldKeys: ["natural-sciences"], verificationStatus: V,
+    },
+    {
+      id: `${uid}-cssh`, universityId: uid, parentUnitId: null, kind: "college",
+      name: "College of Social Sciences & Humanities",
+      fieldKeys: ["social-sciences"], verificationStatus: V,
+    },
+    {
+      id: `${uid}-cvm`, universityId: uid, parentUnitId: null, kind: "college",
+      name: "College of Veterinary Medicine",
+      fieldKeys: ["veterinary-medicine"], verificationStatus: V,
+    },
+    {
+      id: `${uid}-hit`, universityId: uid, parentUnitId: null, kind: "institute",
+      name: "Haramaya Institute of Technology (HIT)",
+      fieldKeys: ["engineering"], verificationStatus: V,
+    },
+    {
+      id: `${uid}-ssa`, universityId: uid, parentUnitId: null, kind: "academy",
+      name: "Sport Science Academy",
+      fieldKeys: ["sport-science"], verificationStatus: V,
+    },
   ],
-  departments: [],
+
+  // ── DEPARTMENTS ────────────────────────────────────────────────────────────
+  departments: [
+    // A — College of Agriculture & Environmental Sciences (8 departments)
+    { id: `${uid}-d-a1`, universityId: uid, unitId: `${uid}-caes`, name: "Agribusiness and Value Chain Management", verificationStatus: V },
+    { id: `${uid}-d-a2`, universityId: uid, unitId: `${uid}-caes`, name: "Agricultural Economics", verificationStatus: V },
+    { id: `${uid}-d-a3`, universityId: uid, unitId: `${uid}-caes`, name: "Animal Sciences", verificationStatus: V },
+    { id: `${uid}-d-a4`, universityId: uid, unitId: `${uid}-caes`, name: "Environmental Sciences", verificationStatus: V },
+    { id: `${uid}-d-a5`, universityId: uid, unitId: `${uid}-caes`, name: "Natural Resource Management", verificationStatus: V },
+    { id: `${uid}-d-a6`, universityId: uid, unitId: `${uid}-caes`, name: "Plant Sciences", verificationStatus: V },
+    { id: `${uid}-d-a7`, universityId: uid, unitId: `${uid}-caes`, name: "Range Ecology and Biodiversity", verificationStatus: V },
+    { id: `${uid}-d-a8`, universityId: uid, unitId: `${uid}-caes`, name: "Rural Development and Agricultural Extension", verificationStatus: V },
+
+    // B — College of Business & Economics (5 departments)
+    { id: `${uid}-d-b1`, universityId: uid, unitId: `${uid}-cbe`, name: "Accounting and Finance", verificationStatus: V },
+    { id: `${uid}-d-b2`, universityId: uid, unitId: `${uid}-cbe`, name: "Cooperatives", verificationStatus: V },
+    { id: `${uid}-d-b3`, universityId: uid, unitId: `${uid}-cbe`, name: "Economics", verificationStatus: V },
+    { id: `${uid}-d-b4`, universityId: uid, unitId: `${uid}-cbe`, name: "Management", verificationStatus: V },
+    { id: `${uid}-d-b5`, universityId: uid, unitId: `${uid}-cbe`, name: "Public Administration and Development Management", verificationStatus: V },
+
+    // C — College of Computing & Informatics (6 departments)
+    { id: `${uid}-d-c1`, universityId: uid, unitId: `${uid}-cci`, name: "Computer Science", verificationStatus: V },
+    { id: `${uid}-d-c2`, universityId: uid, unitId: `${uid}-cci`, name: "Information Science", verificationStatus: V },
+    { id: `${uid}-d-c3`, universityId: uid, unitId: `${uid}-cci`, name: "Information System", verificationStatus: V },
+    { id: `${uid}-d-c4`, universityId: uid, unitId: `${uid}-cci`, name: "Information Technology", verificationStatus: V },
+    { id: `${uid}-d-c5`, universityId: uid, unitId: `${uid}-cci`, name: "Software Engineering", verificationStatus: V },
+    { id: `${uid}-d-c6`, universityId: uid, unitId: `${uid}-cci`, name: "Statistics", verificationStatus: V },
+
+    // E — College of Education & Behavioural Sciences (5 departments)
+    { id: `${uid}-d-e1`, universityId: uid, unitId: `${uid}-cebs`, name: "Adult Education and Community Development", verificationStatus: V },
+    { id: `${uid}-d-e2`, universityId: uid, unitId: `${uid}-cebs`, name: "Curriculum and Teachers' Professional Development Studies", verificationStatus: V },
+    { id: `${uid}-d-e3`, universityId: uid, unitId: `${uid}-cebs`, name: "Educational Planning and Management", verificationStatus: V },
+    { id: `${uid}-d-e4`, universityId: uid, unitId: `${uid}-cebs`, name: "Psychology", verificationStatus: V },
+    { id: `${uid}-d-e5`, universityId: uid, unitId: `${uid}-cebs`, name: "Special Needs and Inclusive Education", verificationStatus: V },
+
+    // H — College of Health & Medical Sciences (10 departments)
+    { id: `${uid}-d-h1`, universityId: uid, unitId: `${uid}-chms`, name: "Clinical Pharmacy", verificationStatus: V },
+    { id: `${uid}-d-h2`, universityId: uid, unitId: `${uid}-chms`, name: "Comprehensive Nursing", verificationStatus: V },
+    { id: `${uid}-d-h3`, universityId: uid, unitId: `${uid}-chms`, name: "Emergency Care Nursing", verificationStatus: V },
+    { id: `${uid}-d-h4`, universityId: uid, unitId: `${uid}-chms`, name: "Environmental Health Science", verificationStatus: V },
+    { id: `${uid}-d-h5`, universityId: uid, unitId: `${uid}-chms`, name: "Health Informatics", verificationStatus: V },
+    { id: `${uid}-d-h6`, universityId: uid, unitId: `${uid}-chms`, name: "Medical Laboratory Sciences", verificationStatus: V },
+    { id: `${uid}-d-h7`, universityId: uid, unitId: `${uid}-chms`, name: "Medicine", verificationStatus: V },
+    { id: `${uid}-d-h8`, universityId: uid, unitId: `${uid}-chms`, name: "Midwifery", verificationStatus: V },
+    { id: `${uid}-d-h9`, universityId: uid, unitId: `${uid}-chms`, name: "Pediatric Nursing", verificationStatus: V },
+    { id: `${uid}-d-h10`, universityId: uid, unitId: `${uid}-chms`, name: "Public Health", verificationStatus: V },
+
+    // I — Haramaya Institute of Technology (7 departments)
+    { id: `${uid}-d-i1`, universityId: uid, unitId: `${uid}-hit`, name: "Agricultural Engineering", verificationStatus: V },
+    { id: `${uid}-d-i2`, universityId: uid, unitId: `${uid}-hit`, name: "Chemical Engineering", verificationStatus: V },
+    { id: `${uid}-d-i3`, universityId: uid, unitId: `${uid}-hit`, name: "Civil Engineering", verificationStatus: V },
+    { id: `${uid}-d-i4`, universityId: uid, unitId: `${uid}-hit`, name: "Electrical and Computer Engineering", verificationStatus: V },
+    { id: `${uid}-d-i5`, universityId: uid, unitId: `${uid}-hit`, name: "Food Process Engineering", verificationStatus: V },
+    { id: `${uid}-d-i6`, universityId: uid, unitId: `${uid}-hit`, name: "Mechanical Engineering", verificationStatus: V },
+    { id: `${uid}-d-i7`, universityId: uid, unitId: `${uid}-hit`, name: "Water Resources and Irrigation Engineering", verificationStatus: V },
+
+    // L — College of Law (1 department)
+    { id: `${uid}-d-l1`, universityId: uid, unitId: `${uid}-col`, name: "Law (LLB)", verificationStatus: V },
+
+    // N — College of Natural & Computational Sciences (5 departments)
+    { id: `${uid}-d-n1`, universityId: uid, unitId: `${uid}-cncs`, name: "Biology", verificationStatus: V },
+    { id: `${uid}-d-n2`, universityId: uid, unitId: `${uid}-cncs`, name: "Chemistry", verificationStatus: V },
+    { id: `${uid}-d-n3`, universityId: uid, unitId: `${uid}-cncs`, name: "Mathematics", verificationStatus: V },
+    { id: `${uid}-d-n4`, universityId: uid, unitId: `${uid}-cncs`, name: "Molecular Biology and Biotechnology", verificationStatus: V },
+    { id: `${uid}-d-n5`, universityId: uid, unitId: `${uid}-cncs`, name: "Physics", verificationStatus: V },
+
+    // S — College of Social Sciences & Humanities (9 departments)
+    { id: `${uid}-d-s1`, universityId: uid, unitId: `${uid}-cssh`, name: "Afan Oromo Communication", verificationStatus: V },
+    { id: `${uid}-d-s2`, universityId: uid, unitId: `${uid}-cssh`, name: "English Language and Literature", verificationStatus: V },
+    { id: `${uid}-d-s3`, universityId: uid, unitId: `${uid}-cssh`, name: "French Language and Literature", verificationStatus: V },
+    { id: `${uid}-d-s4`, universityId: uid, unitId: `${uid}-cssh`, name: "Gender and Development", verificationStatus: V },
+    { id: `${uid}-d-s5`, universityId: uid, unitId: `${uid}-cssh`, name: "Geography and Environmental Studies", verificationStatus: V },
+    { id: `${uid}-d-s6`, universityId: uid, unitId: `${uid}-cssh`, name: "History and Heritage Management", verificationStatus: V },
+    { id: `${uid}-d-s7`, universityId: uid, unitId: `${uid}-cssh`, name: "Journalism and Mass Communication", verificationStatus: V },
+    { id: `${uid}-d-s8`, universityId: uid, unitId: `${uid}-cssh`, name: "Sociology", verificationStatus: V },
+    { id: `${uid}-d-s9`, universityId: uid, unitId: `${uid}-cssh`, name: "Urban Planning", verificationStatus: V },
+
+    // V — College of Veterinary Medicine (2 programs)
+    { id: `${uid}-d-v1`, universityId: uid, unitId: `${uid}-cvm`, name: "Veterinary Medicine (DVM)", verificationStatus: V },
+    { id: `${uid}-d-v2`, universityId: uid, unitId: `${uid}-cvm`, name: "BSc in Veterinary Laboratory Technology", verificationStatus: V },
+
+    // Sport Science Academy (1 department)
+    { id: `${uid}-d-sp1`, universityId: uid, unitId: `${uid}-ssa`, name: "Sport Sciences", verificationStatus: V },
+  ],
+
   programs: [],
   facilities: [],
   photos: [],
+
   history: [
     {
       id: `${uid}-h1`,
@@ -80,6 +213,7 @@ export const haramaya: UniversityRecord = {
       verificationStatus: V,
     },
   ],
+
   sources: [
     {
       id: `${uid}-s1`,
@@ -90,7 +224,17 @@ export const haramaya: UniversityRecord = {
       lastVerified: "2026-09",
       verificationStatus: V,
     },
+    {
+      id: `${uid}-s2`,
+      universityId: uid,
+      sourceName: "HIT official program and faculty pages",
+      sourceUrl: "https://www.haramaya.edu.et",
+      sourceType: "official_website",
+      lastVerified: "2026-09",
+      verificationStatus: V,
+    },
   ],
+
   contact: {
     universityId: uid,
     website: "https://www.haramaya.edu.et",
@@ -98,6 +242,7 @@ export const haramaya: UniversityRecord = {
     phone: null,
     address: null,
   },
+
   orgUnits: [
     { id: `${uid}-o1`, universityId: uid, name: "Ministry of Education", parentId: null },
     { id: `${uid}-o2`, universityId: uid, name: "University Board", parentId: `${uid}-o1` },
@@ -123,6 +268,7 @@ export const haramaya: UniversityRecord = {
     { id: `${uid}-o22`, universityId: uid, name: "Haramaya Institute of Technology leadership", parentId: `${uid}-o3` },
     { id: `${uid}-o23`, universityId: uid, name: "College of Health and Medical Sciences (CHMS) leadership", parentId: `${uid}-o3` },
   ],
+
   statistics: [
     {
       id: `${uid}-st1`,
@@ -132,7 +278,30 @@ export const haramaya: UniversityRecord = {
       note: "As stated in the supplied information.",
       verificationStatus: P,
     },
+    {
+      id: `${uid}-st2`,
+      universityId: uid,
+      label: "Colleges",
+      value: "9",
+      verificationStatus: V,
+    },
+    {
+      id: `${uid}-st3`,
+      universityId: uid,
+      label: "Institutes of Technology",
+      value: "1 (HIT — 5 faculties, 7 departments)",
+      verificationStatus: V,
+    },
+    {
+      id: `${uid}-st4`,
+      universityId: uid,
+      label: "Total departments (verified)",
+      value: "58",
+      note: "Across all colleges, HIT, and Sport Science Academy.",
+      verificationStatus: V,
+    },
   ],
+
   library: null,
   leadership: {
     universityId: uid,
@@ -144,4 +313,11 @@ export const haramaya: UniversityRecord = {
     ],
     verificationStatus: V,
   },
+
+  dataNotes: [
+    "The HIT department list is drawn from the Institute's official program page and current faculty pages which confirm the departmental structure.",
+    "The Sport Science Academy has 1 verified department.",
+    "College of Law offers Law (LLB) as its primary program.",
+    "College of Veterinary Medicine confers DVM and BSc in Veterinary Laboratory Technology.",
+  ],
 };

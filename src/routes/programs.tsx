@@ -1,5 +1,6 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 
+import { LoginRequired } from "@/components/site/LoginRequired";
 import { PageHeader } from "@/components/site/PageHeader";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { availableProgramFields, fieldLabel, findByProgramField } from "@/lib/repository";
@@ -9,13 +10,13 @@ export const Route = createFileRoute("/programs")({
     typeof search["field"] === "string" ? { field: search["field"] } : {},
   head: () => ({
     meta: [
-      { title: "Find Universities by Program | University Guide Ethiopia" },
+      { title: "Find Universities by Program | ETHIO UNIVERSITY GUIDE" },
       {
         name: "description",
         content:
           "Pick a field of study and see which Ethiopian universities have verified colleges, schools or institutes covering it.",
       },
-      { property: "og:title", content: "Find Ethiopian Universities by Program" },
+      { property: "og:title", content: "Find Ethiopian Universities by Program | ETHIO UNIVERSITY GUIDE" },
       {
         property: "og:description",
         content: "Match your field of study to verified academic units across Ethiopian universities.",
@@ -34,6 +35,7 @@ function ProgramsPage() {
 
   return (
     <SiteLayout>
+      <LoginRequired>
       <PageHeader
         eyebrow="Program search"
         title="Which universities offer what you want to study?"
@@ -112,6 +114,7 @@ function ProgramsPage() {
           </div>
         </div>
       </div>
+      </LoginRequired>
     </SiteLayout>
   );
 }
