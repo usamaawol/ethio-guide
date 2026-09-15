@@ -95,7 +95,7 @@ export const retrieve = (message: string): AdvisorContext => {
   };
 };
 
-const citationsFor = (records: UniversityRecord[]): AdvisorCitation[] =>
+export const citationsFor = (records: UniversityRecord[]): AdvisorCitation[] =>
   records.flatMap((r) =>
     r.sources.map((s) => ({
       label: `${r.university.shortName} — ${s.sourceName}`,
@@ -116,8 +116,7 @@ export const composeAnswer = (message: string, ctx: AdvisorContext): AdvisorRepl
     const matches = findByProgramField(ctx.fieldKey).filter(
       (x) => !ctx.regionId || x.university.regionId === ctx.regionId,
     );
-    if (matches.length === 0)
-      return { ...base, text: NO_DATA_REPLY, citations: [] };
+    if (matches.length === 0) return { ...base, text: NO_DATA_REPLY, citations: [] };
     const lines = matches.map(
       (x) =>
         `• ${x.university.name} — ${x.unit.name}${
