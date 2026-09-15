@@ -30,6 +30,7 @@ export type AuthUser = {
 const ADMIN_UIDS: string[] = [
   // Add your Firebase UID here after first login, e.g.:
   // "abc123XYZyourFirebaseUID",
+  "FwrIVU2w4Qemw4Ybq2ta06LW1oT2",
 ];
 
 export const isAdmin = (uid: string): boolean => ADMIN_UIDS.includes(uid);
