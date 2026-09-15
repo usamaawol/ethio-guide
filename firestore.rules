@@ -32,13 +32,25 @@ service cloud.firestore {
       return isSignedIn() && request.auth.uid == uid;
     }
 
+    // Known admin UIDs. Keep in sync with ADMIN_UIDS in src/lib/auth.ts.
+    // Firebase UIDs come from the signed-in token and cannot be forged,
+    // so comparing them in rules is safe.
+    function isKnownAdmin() {
+      return isSignedIn() && request.auth.uid in [
+        // The app-level admin account (see ADMIN_UIDS in src/lib/auth.ts).
+        "FwrIVU2w4Qemw4Ybq2ta06LW1oT2",
+      ];
+    }
+
     // Is the requesting user an admin?
-    // Admins are stored in /admins/{uid} with field isAdmin: true.
-    // This lets you promote users server-side without redeploying rules.
+    // A user is an admin if their UID is in the known list above, OR they are
+    // promoted via /admins/{uid} with field isAdmin: true (which lets you
+    // grant admin without redeploying rules).
     function isAdmin() {
-      return isSignedIn() &&
-        exists(/databases/$(database)/documents/admins/$(request.auth.uid)) &&
-        get(/databases/$(database)/documents/admins/$(request.auth.uid)).data.isAdmin == true;
+      return isKnownAdmin() ||
+        (isSignedIn() &&
+          exists(/databases/$(database)/documents/admins/$(request.auth.uid)) &&
+          get(/databases/$(database)/documents/admins/$(request.auth.uid)).data.isAdmin == true);
     }
 
     // ── pageViews collection ────────────────────────────────────────────────
