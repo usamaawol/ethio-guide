@@ -1,43 +1,37 @@
 import type { UniversityRecord } from "../types";
 
-const uid = "keu";
+const uid = "jku-jinka";
 const V = "verified" as const;
 const P = "partially_verified" as const;
 const N = "needs_verification" as const;
 
-const OFFICIAL = "https://www.kmu.edu.et";
+const OFFICIAL = "https://www.jku.edu.et";
 
-export const kotebe: UniversityRecord = {
+export const jinka: UniversityRecord = {
   university: {
     id: uid,
-    slug: "kotebe-education-university",
-    name: "Kotebe Education University",
-    shortName: "KEU",
-    amharicName: "ኮተቤ ትምህርት ዩኒቨርሲቲ",
-    alternateNames: [
-      "KEU",
-      "Kotebe Metropolitan University",
-      "Kotebe College of Teacher Education",
-      "Kotebe",
-      "ኮተቤ ትምህርት ዩኒቨርሲቲ",
-    ],
+    slug: "jinka-university",
+    name: "Jinka University",
+    shortName: "JKU",
+    amharicName: "ጂንካ ዩኒቨርሲቲ",
+    alternateNames: ["JKU", "Jinka", "ጂንካ ዩኒቨርሲቲ"],
     type: "Public University",
-    regionId: "addis-ababa",
-    city: "Addis Ababa",
+    regionId: "south-ethiopia",
+    city: "Jinka",
     country: "Ethiopia",
-    address: "Addis Ababa, Ethiopia",
+    address: "Jinka, South Ethiopia Regional State, Ethiopia",
     coordinates: null,
     googleMapsUrl: null,
-    generationId: "gen-3",
-    yearEstablished: "2011",
+    generationId: "gen-4",
+    yearEstablished: "2017",
     overview:
-      "Kotebe Education University (formerly Kotebe College of Teacher Education) is a non-profit public coeducational higher education institution located in the metropolis of Addis Ababa, Ethiopia. Officially recognized by the Ministry of Education of Ethiopia, it provides programs and courses leading to officially recognized higher education degrees in several areas of study.",
+      "Jinka University is a non-profit public coeducational higher education institution located in the large town of Jinka, South Omo Zone, South Ethiopia Regional State, Ethiopia. Officially recognized by the Ministry of Education of Ethiopia, it provides courses and programs leading to officially recognized higher education degrees across several fields of study.",
     mission: null,
     vision: null,
     values: [],
     goals: [],
     motto: null,
-    logoText: "KEU",
+    logoText: "JKU",
     heroImageUrl: null,
     verificationStatus: P,
     lastVerified: "2026-09",
@@ -46,7 +40,53 @@ export const kotebe: UniversityRecord = {
   generation: null,
   campuses: [],
   buildings: [],
-  units: [],
+  units: [
+    {
+      id: `${uid}-u1`,
+      universityId: uid,
+      parentUnitId: null,
+      kind: "college",
+      name: "College of Agriculture and Natural Resource",
+      fieldKeys: ["agriculture"],
+      verificationStatus: P,
+    },
+    {
+      id: `${uid}-u2`,
+      universityId: uid,
+      parentUnitId: null,
+      kind: "college",
+      name: "College of Business and Economics",
+      fieldKeys: ["business", "economics"],
+      verificationStatus: P,
+    },
+    {
+      id: `${uid}-u3`,
+      universityId: uid,
+      parentUnitId: null,
+      kind: "college",
+      name: "College of Health Sciences",
+      fieldKeys: ["medicine", "public-health", "nursing"],
+      verificationStatus: P,
+    },
+    {
+      id: `${uid}-u4`,
+      universityId: uid,
+      parentUnitId: null,
+      kind: "college",
+      name: "College of Natural and Computational Science",
+      fieldKeys: ["natural-sciences"],
+      verificationStatus: P,
+    },
+    {
+      id: `${uid}-u5`,
+      universityId: uid,
+      parentUnitId: null,
+      kind: "college",
+      name: "College of Social Sciences and Humanities",
+      fieldKeys: ["social-sciences"],
+      verificationStatus: P,
+    },
+  ],
   departments: [],
   programs: [],
   facilities: [],
@@ -55,10 +95,9 @@ export const kotebe: UniversityRecord = {
     {
       id: `${uid}-h1`,
       universityId: uid,
-      year: "2011",
-      title: "Founded / upgraded to university",
-      description:
-        "Current dataset records the university upgrade in 2011; a third-party profile traces the institution's origins to 1959.",
+      year: "2017",
+      title: "Founded",
+      description: "Third-party profile reports 2017; other sources cite an establishment in 2015.",
       verificationStatus: N,
     },
   ],
@@ -66,7 +105,7 @@ export const kotebe: UniversityRecord = {
     {
       id: `${uid}-s1`,
       universityId: uid,
-      sourceName: "Kotebe Education University official website",
+      sourceName: "Jinka University official website",
       sourceUrl: OFFICIAL,
       sourceType: "official_website",
       lastVerified: "2026-09",
@@ -88,10 +127,36 @@ export const kotebe: UniversityRecord = {
     email: null,
     phone: null,
     fax: null,
-    address: "Addis Ababa, Ethiopia",
+    address: "Jinka, South Ethiopia Regional State, Ethiopia",
     poBox: null,
   },
-  orgUnits: [],
+  orgUnits: [
+    {
+      id: `${uid}-o1`,
+      universityId: uid,
+      name: "College of Agriculture and Natural Resource",
+      parentId: null,
+    },
+    {
+      id: `${uid}-o2`,
+      universityId: uid,
+      name: "College of Business and Economics",
+      parentId: null,
+    },
+    { id: `${uid}-o3`, universityId: uid, name: "College of Health Sciences", parentId: null },
+    {
+      id: `${uid}-o4`,
+      universityId: uid,
+      name: "College of Natural and Computational Science",
+      parentId: null,
+    },
+    {
+      id: `${uid}-o5`,
+      universityId: uid,
+      name: "College of Social Sciences and Humanities",
+      parentId: null,
+    },
+  ],
   statistics: [
     {
       id: `${uid}-st1`,
@@ -109,7 +174,16 @@ export const kotebe: UniversityRecord = {
     },
   ],
   library: null,
-  leadership: null,
+  leadership: {
+    universityId: uid,
+    title: "President",
+    personName: "Prof. Gebre Yntiso Deko",
+    personTitle: "President, Jinka University",
+    paragraphs: [
+      "Jinka University is one of the fourth generation public universities in Ethiopia, based on Higher Education Proclamation 650/2009.",
+    ],
+    verificationStatus: P,
+  },
   academicFields: [
     "Arts & Humanities",
     "Language & Cultural Studies",
@@ -120,8 +194,8 @@ export const kotebe: UniversityRecord = {
   ],
   degreeLevels: ["Bachelor"],
   establishmentClaims: [
-    { sourceLabel: "Current dataset", year: "2011" },
-    { sourceLabel: "Third-party profile (uniRank)", year: "1959" },
+    { sourceLabel: "Third-party profile (uniRank)", year: "2017" },
+    { sourceLabel: "Other third-party source (neaea)", year: "2015" },
   ],
   profileFacts: [
     { label: "Control", value: "Public" },
@@ -160,13 +234,14 @@ export const kotebe: UniversityRecord = {
     { label: "International undergraduate", value: "Not reported" },
     { label: "International postgraduate", value: "Not reported" },
   ],
-  socialPlatforms: ["Facebook"],
+  socialPlatforms: [],
   dataNotes: [
-    "The institution evolved from the Kotebe College of Teacher Education; some sources also call it Kotebe Metropolitan University.",
-    "A third-party profile reports the establishment year as 1959; this dataset records the 2011 upgrade to university status. Both are shown rather than merged.",
     "No library facility is currently listed because the third-party profile reports the university library as 'Not reported'; 'Not reported' does not mean 'No'.",
+    "The university is located in the South Omo Zone of the South Ethiopia Regional State.",
+    "Establishment year varies by source: 2017 (third-party profile) and 2015 (other third-party source). Both are shown rather than merged.",
+    "The college list is drawn from the university's institutional repository and other third-party sources.",
     '"Not reported" does not mean "No".',
-    "Social media accounts are referenced but individual URLs are not verified, so no links are shown.",
+    "Social media accounts are not referenced, so no links are shown.",
     "No Wikipedia article is currently referenced.",
     "Detailed current program information is not yet available in this dataset.",
   ],

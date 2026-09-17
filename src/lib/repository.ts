@@ -48,28 +48,65 @@ import { injibara } from "@/data/universities/injibara";
 import { selale } from "@/data/universities/selale";
 import { arsi } from "@/data/universities/arsi";
 import { gambella } from "@/data/universities/gambella";
-import type {
-  AcademicUnit,
-  Generation,
-  Region,
-  University,
-  UniversityRecord,
-} from "@/data/types";
+import { bonga } from "@/data/universities/bonga";
+import { borena } from "@/data/universities/borena";
+import { debark } from "@/data/universities/debark";
+import { dembiDolo } from "@/data/universities/dembi-dolo";
+import { jinka } from "@/data/universities/jinka";
+import { kebriDehar } from "@/data/universities/kebri-dehar";
+import type { AcademicUnit, Generation, Region, University, UniversityRecord } from "@/data/types";
 
 /** Every university record in the guide. Additive only — never remove records. */
 const records: UniversityRecord[] = [
   // Original 7
-  aastu, aau, adigrat, aksum, astu, haramaya, jimma,
+  aastu,
+  aau,
+  adigrat,
+  aksum,
+  astu,
+  haramaya,
+  jimma,
   // Newly registered
-  gondar, bahirDar, mekelle, hawassa, arbaMinch, jigjiga,
-  ambo, dilla, unity, debreBerhan, wollo, debreMarkos,
-  wolaitaSodo, maddaWalabu, worabe, wachamo, debreTabor,
-  wolkite, samara, assosa, direDawa, wollega, mettu,
-  mizanTepi, kotebe, woldia, buleHora, odaBultum,
-  raya, injibara, selale,
-  arsi, gambella,
+  gondar,
+  bahirDar,
+  mekelle,
+  hawassa,
+  arbaMinch,
+  jigjiga,
+  ambo,
+  dilla,
+  unity,
+  debreBerhan,
+  wollo,
+  debreMarkos,
+  wolaitaSodo,
+  maddaWalabu,
+  worabe,
+  wachamo,
+  debreTabor,
+  wolkite,
+  samara,
+  assosa,
+  direDawa,
+  wollega,
+  mettu,
+  mizanTepi,
+  kotebe,
+  woldia,
+  buleHora,
+  odaBultum,
+  raya,
+  injibara,
+  selale,
+  arsi,
+  gambella,
+  bonga,
+  borena,
+  debark,
+  dembiDolo,
+  jinka,
+  kebriDehar,
 ];
-
 
 const hydrate = (record: UniversityRecord): UniversityRecord => ({
   ...record,
@@ -150,10 +187,8 @@ export const queryUniversities = (query: UniversityQuery = {}): UniversityRecord
 
   const sort = query.sort ?? "name";
   return [...results].sort((a, b) => {
-    if (sort === "location")
-      return (a.region?.name ?? "zz").localeCompare(b.region?.name ?? "zz");
-    if (sort === "generation")
-      return (a.generation?.order ?? 99) - (b.generation?.order ?? 99);
+    if (sort === "location") return (a.region?.name ?? "zz").localeCompare(b.region?.name ?? "zz");
+    if (sort === "generation") return (a.generation?.order ?? 99) - (b.generation?.order ?? 99);
     if (sort === "established")
       return (a.university.yearEstablished ?? "9999").localeCompare(
         b.university.yearEstablished ?? "9999",
@@ -217,8 +252,7 @@ export const searchEverything = (q: string) => {
     .slice(0, 6);
   const fields = programFields
     .filter(
-      (f) =>
-        f.label.toLowerCase().includes(needle) || f.aliases.some((a) => a.includes(needle)),
+      (f) => f.label.toLowerCase().includes(needle) || f.aliases.some((a) => a.includes(needle)),
     )
     .filter((f) => findByProgramField(f.key).length > 0)
     .slice(0, 6);
